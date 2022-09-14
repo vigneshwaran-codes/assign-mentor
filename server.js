@@ -19,7 +19,8 @@ mongoose.connect(
   MONGO_URL,
   {
     useNewURLParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   },
   (err) => {
     if (err) {
