@@ -73,8 +73,8 @@ studentRouter.patch('/assign-students', async (req, res) => {
   }
 })
 
-//
-studentRouter.get('/student-mentor/:id', async (req, res) => {
+// listing students for a selected mentor
+studentRouter.get('/students-mentor/:id', async (req, res) => {
   const { id } = req.params
   try {
     const students = await Student.find({ mentor: id })

@@ -3,7 +3,7 @@ import Mentor from '../models/Mentor.js'
 
 const mentorRouter = express.Router()
 
-//  getMentor Data
+//  getMentor Details
 mentorRouter.get('/', async (req, res) => {
   try {
     const mentors = await Mentor.find()
@@ -34,11 +34,11 @@ mentorRouter.post('/', async (req, res) => {
   }
 })
 
-// assign Mentor to Student
+// Get mentor by ID
 mentorRouter.get('/mentor/:id', async (req, res) => {
   const { id } = req.params
   try {
-    const mentor = await Mentor.findById({ id: id })
+    const mentor = await Mentor.findById({ _id: id })
     res.status(200).send(mentor)
   } catch (err) {
     res.status(500)
