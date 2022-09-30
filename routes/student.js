@@ -29,7 +29,8 @@ studentRouter.post('/', async (req, res) => {
     const newStudent = await addStudent.save()
     res.send(newStudent)
   } catch (err) {
-    console.log(res.status(500).send(err))
+    res.status(500)
+    res.send(err)
   }
 })
 
@@ -61,8 +62,8 @@ studentRouter.patch('/assign-students', async (req, res) => {
   console.log(studentList)
   try {
     studentList
-      .map(async (id) => {
-        const student = await Student.findById(id)
+      .map(async (studentId) => {
+        const student = await Student.findById(studentId)
         student.mentor = mentor
         await student.save()
       })

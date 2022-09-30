@@ -20,16 +20,11 @@ mongoose.connect(
   {
     useNewURLParser: true,
     useUnifiedTopology: true
-  },
-  (err) => {
-    if (err) {
-      return console.log(err)
-    }
-    console.log('MongoDB is established')
   }
 )
 
-console.log('connecting to MongoDB')
+const connection = mongoose.connection
+connection.on('open', () => console.log('MongoDB Connected Successfully'))
 
 // server started
 app.get('/', (req, res) => {
