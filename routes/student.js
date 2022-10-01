@@ -57,7 +57,7 @@ studentRouter.patch('/assign-mentor/:id', async (req, res) => {
 })
 
 // show mentor assigned to student
-studentRouter.patch('/assign-students', async (req, res) => {
+studentRouter.patch('/assign-mentor-students', async (req, res) => {
   const { mentor, studentList } = req.body
   console.log(studentList)
   try {
@@ -75,7 +75,7 @@ studentRouter.patch('/assign-students', async (req, res) => {
 })
 
 // listing students for a selected mentor
-studentRouter.get('/students-mentor/:id', async (req, res) => {
+studentRouter.get('/mentor-students/:id', async (req, res) => {
   const { id } = req.params
   try {
     const students = await Student.find({ mentor: id })

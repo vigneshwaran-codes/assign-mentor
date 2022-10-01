@@ -35,7 +35,7 @@ mentorRouter.post('/', async (req, res) => {
 })
 
 // Get mentor by ID
-mentorRouter.get('/mentor/:id', async (req, res) => {
+mentorRouter.get('/get-mentor/:id', async (req, res) => {
   const { id } = req.params
   try {
     const mentor = await Mentor.findById({ _id: id })
