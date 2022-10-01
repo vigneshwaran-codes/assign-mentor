@@ -58,12 +58,12 @@ studentRouter.patch('/assign-mentor/:id', async (req, res) => {
 
 // show mentor assigned to student
 studentRouter.patch('/assign-mentor-students', async (req, res) => {
-  const { mentor, studentList } = req.body
-  console.log(studentList)
+  const { mentor, stud_list } = req.body
+  console.log(stud_list)
   try {
-    studentList
-      .map(async (studentId) => {
-        const student = await Student.findById(studentId)
+    stud_list
+      .map(async (stud_id) => {
+        const student = await Student.findById(stud_id)
         student.mentor = mentor
         await student.save()
       })
