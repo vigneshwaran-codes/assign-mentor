@@ -16,6 +16,6 @@ const mentorSchema = new mongoose.Schema({
   }
 })
 
-const Mentor = mongoose.model('Mentor', mentorSchema)
+const MentorModel = mongoose.model('Mentor', mentorSchema)
 
-export default Mentor
+export default MentorModel

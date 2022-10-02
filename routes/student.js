@@ -7,13 +7,11 @@ const studentRouter = express.Router()
 
 studentRouter.get('/', async (req, res) => {
   try {
-    await Student.find({})
-      .populate('Mentor')
-      .exec((err, result) => {
-        if (!err) {
-          res.json(result)
-        }
-      })
+    await Student.find({}).populate('mentor').exec((err, result) => {
+      if (!err) {
+        res.json(result)
+      }
+    })
   } catch (err) {
     res.status(400).send(err)
   }

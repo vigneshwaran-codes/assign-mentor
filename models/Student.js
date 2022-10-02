@@ -11,11 +11,11 @@ const studentSchema = new mongoose.Schema({
   },
   mentor: {
     type: mongoose.Schema.Types.ObjectId,
-    default: undefined,
-    ref: 'Mentor'
+    ref: 'Mentor',
+    default: undefined
   }
 })
 
-const Student = mongoose.model('Student', studentSchema)
+const StudentModel = mongoose.model('Student', studentSchema)
 
-export default Student
+export default StudentModel
